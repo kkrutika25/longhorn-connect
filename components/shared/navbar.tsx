@@ -1,10 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
 
 const links = [
   { href: "/ask", label: "Ask AI" },
-  { href: "/ambassadors", label: "Ambassadors" },
+  { href: "/ambassadors", label: "FindAmbassador" },
   { href: "/messages", label: "Messages" },
   { href: "/dashboard", label: "Student" },
   { href: "/ambassador", label: "Ambassador" }
@@ -31,20 +30,26 @@ export function Navbar() {
           ))}
         </nav>
         <div className="hidden items-center gap-3 md:flex">
-          <div className="flex items-center gap-3 rounded-full border border-slate-200 bg-white/80 px-3 py-2">
-            <Image
-              src="https://randomuser.me/api/portraits/women/33.jpg"
-              alt="Demo user"
-              width={32}
-              height={32}
-              className="rounded-full border border-slate-200 object-cover"
-              unoptimized
-            />
-            <p className="text-sm font-semibold text-slate-800">Demo Login</p>
+          <div className="rounded-[24px] border border-slate-200 bg-white/80 px-3 py-2">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-500">Demo Login</p>
+            <div className="mt-2 flex items-center gap-2">
+              <Image
+                src="https://randomuser.me/api/portraits/women/33.jpg"
+                alt="Demo user"
+                width={28}
+                height={28}
+                className="rounded-full border border-slate-200 object-cover"
+                unoptimized
+              />
+              <select
+                defaultValue="student"
+                className="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-sm font-semibold text-slate-800 outline-none transition focus:border-burnt-300 focus:ring-2 focus:ring-burnt-100"
+              >
+                <option value="student">Student</option>
+                <option value="ambassador">Ambassador</option>
+              </select>
+            </div>
           </div>
-          <Button href="/ambassadors" variant="secondary">
-            Find an Ambassador
-          </Button>
         </div>
       </div>
     </header>
