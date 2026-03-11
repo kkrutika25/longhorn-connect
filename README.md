@@ -2,8 +2,6 @@
 
 Next.js MVP scaffold for a hybrid AI + ambassador mentorship experience for UT Austin.
 
-![LonghornConnect app screenshot](./docs/assets/app-screenshot.png)
-
 ## Mission
 
 LonghornConnect helps prospective and current students navigate UT Austin through a hybrid support model: fast AI answers for common questions and real student ambassadors for deeper mentorship, chat, and scheduled guidance.
