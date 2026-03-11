@@ -298,92 +298,75 @@ export const ambassadorUser = ambassadors.find((ambassador) => ambassador.id ===
 export const knowledgeBaseEntries: KnowledgeBaseEntry[] = [
   {
     id: "kb-1",
-    title: "How UT Austin housing works",
-    category: "Housing",
+    title: "What is the main focus of the Master of Science in Information and Technology Management curriculum?",
+    category: "Curriculum",
     content:
-      "First-year students usually compare residence halls by location, room style, and community feel. Housing decisions often connect to distance from classes and social spaces.",
-    source: "UT Housing",
-    updatedAt: "2026-02-16"
+      "The MSITM curriculum is built around AI Foundations, Data and Cloud Engineering, and Business Strategy and Execution. Students build expertise in AI, advanced programming, cloud-native development, IT strategy, product management, governance, and ethical leadership through hands-on work and a required capstone.",
+    source: "MSITM FAQ",
+    updatedAt: "2026-03-11"
   },
   {
     id: "kb-2",
-    title: "Getting involved in computer science clubs",
-    category: "Clubs",
+    title: "How long does it take to complete the Texas McCombs MSITM program?",
+    category: "Program Format",
     content:
-      "Computer science students often join ACM, Convergent, and hackathon communities to build projects and meet collaborators.",
-    source: "UT Student Orgs",
-    updatedAt: "2026-02-09"
+      "The program is a full-time, 10-month curriculum that starts in early July and finishes in May. Students complete summer core courses, then move through fall and spring semesters with electives and a required capstone in the final term.",
+    source: "MSITM FAQ",
+    updatedAt: "2026-03-11"
   },
   {
     id: "kb-3",
-    title: "Campus life and student organizations",
-    category: "Campus Life",
+    title: "Is the Texas McCombs MSITM program STEM-designated?",
+    category: "International",
     content:
-      "Students build community through org fairs, traditions, wellness events, and recurring campus programming throughout the semester.",
-    source: "UT Austin Student Affairs",
-    updatedAt: "2026-02-10"
+      "Yes. MSITM is officially STEM-designated. For international students, that supports a 24-month OPT extension, which can result in up to 36 months of work authorization after graduation.",
+    source: "MSITM FAQ",
+    updatedAt: "2026-03-11"
   },
   {
     id: "kb-4",
-    title: "Pre-med planning and support",
-    category: "Academics",
+    title: "What materials are required to apply to the Texas McCombs MSITM program?",
+    category: "Admissions",
     content:
-      "Pre-med students use advising, student orgs, research, and wellness planning to build a sustainable schedule.",
-    source: "Health Professions Office",
-    updatedAt: "2026-02-08"
+      "Applicants submit the online application form, resume or CV, two written essays, one video assessment, two recommendation letters, official transcripts, English proficiency scores if required, and optional GRE or GMAT scores.",
+    source: "MSITM FAQ",
+    updatedAt: "2026-03-11"
   },
   {
     id: "kb-5",
-    title: "Admissions and first-year transition",
-    category: "Admissions",
+    title: "How much does the program cost?",
+    category: "Tuition",
     content:
-      "Prospective students often ask about orientation, the shift to college classes, and how to build community early.",
-    source: "UT Admissions",
-    updatedAt: "2026-02-01"
+      "Current tuition is approximately $54,000 for Texas residents and $58,000 for out-of-state residents for the full 10-month program. Books, software, living costs, laptops, and optional fees are separate, and admitted students must pay a non-refundable $2,000 pre-enrollment tuition fee to secure their seat.",
+    source: "MSITM FAQ",
+    updatedAt: "2026-03-11"
   },
   {
     id: "kb-6",
-    title: "Undergraduate research pathways",
-    category: "Academics",
+    title: "What kinds of careers do Texas McCombs MSITM graduates pursue, and what are their average starting salaries?",
+    category: "Careers",
     content:
-      "Research opportunities can come from faculty labs, department newsletters, and project-based student groups.",
-    source: "Undergraduate Studies",
-    updatedAt: "2026-01-28"
+      "Graduates move into roles such as AI forward deployed engineer, data engineer, machine learning engineer, cloud engineer, business analyst, data analyst, IT project manager, product manager, and technology consultant. The average salary for the Class of 2025 after graduation was about $110,000.",
+    source: "MSITM FAQ",
+    updatedAt: "2026-03-11"
   },
   {
     id: "kb-7",
-    title: "Campus jobs and student work",
-    category: "Campus Life",
-    content: "Students find campus jobs through department listings, student media, and peer referrals.",
-    source: "HireUTexas",
-    updatedAt: "2026-02-11"
+    title: "Who is the ideal applicant for the Texas McCombs MSITM program?",
+    category: "Admissions",
+    content:
+      "The ideal applicant is a recent graduate or early-career professional who wants to use technology to solve business and societal problems. Strong candidates typically show programming and database skills, curiosity, resilience, teamwork, communication, and a record of building or applying technical solutions.",
+    source: "MSITM FAQ",
+    updatedAt: "2026-03-11"
   },
   {
     id: "kb-8",
-    title: "Study abroad planning",
-    category: "Academics",
+    title: "Are GRE or GMAT scores required for admission to the Texas McCombs MSITM program?",
+    category: "Admissions",
     content:
-      "Students usually start with program exploration, degree planning, and budget preparation well before departure.",
-    source: "Texas Global",
-    updatedAt: "2026-02-13"
-  },
-  {
-    id: "kb-9",
-    title: "Residence halls and living communities",
-    category: "Housing",
-    content:
-      "Residence hall choice shapes daily routine, community access, and how quickly students feel grounded on campus.",
-    source: "University Housing",
-    updatedAt: "2026-02-15"
-  },
-  {
-    id: "kb-10",
-    title: "Campus wellness resources",
-    category: "Campus Life",
-    content:
-      "Wellness support includes counseling, peer support, recreation, and time management resources for busy students.",
-    source: "UT Wellness Network",
-    updatedAt: "2026-02-12"
+      "No. GRE and GMAT scores are optional for all Texas McCombs Master of Science programs, including MSITM. Applications are fully considered with or without scores, although applicants can submit them if they believe the scores strengthen their profile.",
+    source: "MSITM FAQ",
+    updatedAt: "2026-03-11"
   }
 ];
 
@@ -793,30 +776,62 @@ export function getAmbassadorMatches(query: string) {
 
 export function askCampusQuestion(question: string): AskResponse {
   const normalized = question.toLowerCase();
+  const stopWords = new Set([
+    "the",
+    "a",
+    "an",
+    "is",
+    "are",
+    "do",
+    "does",
+    "to",
+    "for",
+    "of",
+    "in",
+    "on",
+    "and",
+    "or",
+    "what",
+    "how",
+    "who",
+    "when",
+    "why",
+    "can",
+    "i",
+    "it"
+  ]);
+  const tokens = normalized.split(/[^a-z0-9]+/).filter((token) => token && !stopWords.has(token));
   const matchingEntries = knowledgeBaseEntries
     .map((entry) => {
-      const score = [entry.title, entry.category, entry.content].reduce((count, value) => {
-        return count + Number(value.toLowerCase().includes(normalized.split(" ")[0] ?? ""));
-      }, 0);
+      const haystack = [entry.title, entry.category, entry.content].join(" ").toLowerCase();
+      const tokenScore = tokens.reduce((count, token) => count + Number(haystack.includes(token)), 0);
+      const exactTitleBonus = entry.title.toLowerCase() === normalized ? 10 : 0;
+      const partialTitleBonus = entry.title.toLowerCase().includes(normalized) || normalized.includes(entry.title.toLowerCase()) ? 5 : 0;
+      const score = tokenScore + exactTitleBonus + partialTitleBonus;
       return { entry, score };
     })
     .sort((left, right) => right.score - left.score)
-    .slice(0, 3)
-    .map(({ entry }) => entry);
+    .slice(0, 3);
 
-  const answerParts = matchingEntries.length
-    ? matchingEntries.map((entry) => `${entry.title}: ${entry.content}`)
-    : ["I could not find a precise answer in the current UT Austin knowledge base."];
+  const bestMatch = matchingEntries[0];
 
   const suggested = getAmbassadorMatches(question).slice(0, 3);
 
   return {
-    answer: `${answerParts.join(" ")} You can also connect with an ambassador for lived experience and practical advice.`,
-    citations: matchingEntries.map((entry) => ({
-      id: entry.id,
-      title: entry.title,
-      source: entry.source
-    })),
+    answer:
+      bestMatch && bestMatch.score > 0
+        ? bestMatch.entry.content
+        : "I could not find a precise answer to that question in the current MSITM FAQ knowledge base.",
+    citations:
+      bestMatch && bestMatch.score > 0
+        ? [
+            {
+              id: bestMatch.entry.id,
+              title: bestMatch.entry.title,
+              source: bestMatch.entry.source
+            }
+          ]
+        : [],
     suggestedAmbassadors: suggested
   };
 }

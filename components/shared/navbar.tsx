@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
@@ -29,7 +30,18 @@ export function Navbar() {
             </Link>
           ))}
         </nav>
-        <div className="hidden md:block">
+        <div className="hidden items-center gap-3 md:flex">
+          <div className="flex items-center gap-3 rounded-full border border-slate-200 bg-white/80 px-3 py-2">
+            <Image
+              src="https://randomuser.me/api/portraits/women/33.jpg"
+              alt="Demo user"
+              width={32}
+              height={32}
+              className="rounded-full border border-slate-200 object-cover"
+              unoptimized
+            />
+            <p className="text-sm font-semibold text-slate-800">Demo Login</p>
+          </div>
           <Button href="/ambassadors" variant="secondary">
             Find an Ambassador
           </Button>

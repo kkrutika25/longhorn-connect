@@ -7,15 +7,17 @@ import { Card } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
 import { AskResponse } from "@/lib/types";
 
-const categories = ["Admissions", "Housing", "Academics", "Campus Life", "Clubs"];
+const categories = ["Curriculum", "Admissions", "Program Format", "Tuition", "Careers"];
 const prompts = [
-  "How is UT Austin dorm life?",
-  "Best computer science clubs?",
-  "How do students get involved on campus?"
+  "What is the main focus of the Master of Science in Information and Technology Management curriculum?",
+  "How long does it take to complete the Texas McCombs MSITM program?",
+  "Is the Texas McCombs MSITM program STEM-designated?",
+  "What materials are required to apply to the Texas McCombs MSITM program?",
+  "What kinds of careers do Texas McCombs MSITM graduates pursue, and what are their average starting salaries?"
 ];
 
 const fallback: AskResponse = {
-  answer: "Ask a UT Austin question to see a grounded answer and ambassador suggestions.",
+  answer: "Ask an MSITM question to see a grounded answer from the uploaded FAQ and ambassador suggestions.",
   citations: [],
   suggestedAmbassadors: []
 };
@@ -38,11 +40,11 @@ export function AskExperience() {
 
   return (
     <div className="grid gap-6 lg:grid-cols-[260px,1fr]">
-      <Card className="h-fit">
-        <p className="text-sm font-semibold uppercase tracking-[0.18em] text-burnt-700">Categories</p>
-        <div className="mt-5 grid gap-3">
-          {categories.map((category) => (
-            <button key={category} className="rounded-2xl bg-slate-100 px-4 py-3 text-left text-sm text-slate-700 transition hover:bg-burnt-50">
+        <Card className="h-fit">
+          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-burnt-700">Categories</p>
+          <div className="mt-5 grid gap-3">
+            {categories.map((category) => (
+              <button key={category} className="rounded-2xl bg-slate-100 px-4 py-3 text-left text-sm text-slate-700 transition hover:bg-burnt-50">
               {category}
             </button>
           ))}
@@ -65,21 +67,13 @@ export function AskExperience() {
               </button>
             ))}
           </div>
-          <div className="mt-6 space-y-4">
-            <div className="rounded-[24px] bg-slate-100 p-4 text-sm text-slate-700">{question}</div>
-            <div className="rounded-[28px] border border-burnt-100 bg-burnt-50 p-5 text-sm leading-7 text-slate-700">
-              {loading ? "Searching the UT Austin knowledge base..." : response.answer}
-            </div>
-            {!!response.citations.length && (
-              <div className="grid gap-3 md:grid-cols-3">
-                {response.citations.map((citation) => (
-                  <div key={citation.id} className="rounded-[22px] border border-slate-200 bg-white p-4 text-sm">
-                    <p className="font-semibold text-slate-900">{citation.title}</p>
-                    <p className="mt-1 text-slate-500">{citation.source}</p>
-                  </div>
-                ))}
-              </div>
-            )}
+        </Card>
+
+        <Card>
+          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-burnt-700">Result</p>
+          <div className="mt-4 rounded-[24px] bg-slate-100 p-4 text-sm text-slate-700">{question}</div>
+          <div className="mt-4 rounded-[28px] border border-burnt-100 bg-burnt-50 p-5 text-sm leading-7 text-slate-700">
+            {loading ? "Searching the MSITM FAQ..." : response.answer}
           </div>
         </Card>
 
