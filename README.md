@@ -1,4 +1,4 @@
-# UT AmbassadorAI
+# LonghornConnect
 
 Next.js MVP scaffold for a hybrid AI + ambassador mentorship experience for UT Austin.
 
@@ -21,6 +21,11 @@ Next.js MVP scaffold for a hybrid AI + ambassador mentorship experience for UT A
 - `/ambassador` ambassador dashboard
 - `/admin` admin dashboard
 
+## Project Docs
+
+- [MSITM FAQ](./docs/msitm-faq.md) - source FAQ content used to seed the Ask AI experience
+- [Codex Skills](./docs/codex-skills.md) - reusable skills created for maintaining this project
+
 ## Run
 
 ```bash
@@ -34,3 +39,4 @@ npm run dev
 - Scheduling now models `available`, `pending`, and `booked` states plus ambassador-side confirm and decline actions.
 - API routes are placeholders designed to be swapped with Prisma, auth, and OpenAI integrations later.
 - Responsive mobile navigation is included through a bottom tab bar.
+- The Ask AI section is currently grounded in the MSITM FAQ stored in `docs/msitm-faq.md`.
